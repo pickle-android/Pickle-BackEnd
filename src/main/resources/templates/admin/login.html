@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>관리자 로그인</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div class="login-container">
+    <img src="/images/pickleLogo.png" alt="로고"/>
+    <h1>관리자 로그인</h1>
+    <form th:action="@{/admin/login}" method="post">
+        <div class="input-group">
+            <input type="text" id="username" name="username" required placeholder="아이디"/>
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" name="password" required placeholder="비밀번호"/>
+        </div>
+        <div>
+            <button type="submit">로그인</button>
+        </div>
+        <div th:if="${param.error}">
+            <p class="error">아이디 또는 비밀번호가 올바르지 않습니다</p>
+        </div>
+        <div th:if="${param.logout}">
+            <p class="logout">로그아웃 되었습니다</p>
+        </div>
+    </form>
+</div>
+</body>
+</html>
